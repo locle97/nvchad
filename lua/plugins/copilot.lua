@@ -16,7 +16,4 @@ return {
             require("copilot_cmp").setup()
         end
     },
-    {
-        "giuxtaposition/blink-cmp-copilot",
-    }
 }
