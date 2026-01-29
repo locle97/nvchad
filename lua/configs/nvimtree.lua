@@ -1,6 +1,6 @@
 dofile(vim.g.base46_cache .. "nvimtree")
-local HEIGHT_RATIO = 0.9 -- You can change this
-local WIDTH_RATIO = 0.9  -- You can change this too
+local HEIGHT_RATIO = 1.0 -- Fullscreen
+local WIDTH_RATIO = 1.0  -- Fullscreen
 
 return {
     filters = { dotfiles = false },
@@ -14,6 +14,18 @@ return {
     notify = {
         threshold = vim.log.levels.ERROR,
         absolute_path = true,
+    },
+    git = {
+        enable = true,
+        ignore = true,
+    },
+    filesystem_watchers = {
+        enable = true,
+    },
+    actions = {
+        open_file = {
+            resize_window = true,
+        },
     },
     view = {
         centralize_selection = true,
@@ -38,7 +50,7 @@ return {
                 local center_y = ((vim.opt.lines:get() - window_h) / 2)
                     - vim.opt.cmdheight:get()
                 return {
-                    border = "rounded",
+                    border = "none",
                     relative = "editor",
                     row = center_y,
                     col = center_x,
