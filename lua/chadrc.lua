@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-    theme = "catppuccin",
+    theme = "aquarium",
 
     hl_override = {
         TelescopeSelection = { bg = "#34343e", fg = "#ced4df", bold = true },
