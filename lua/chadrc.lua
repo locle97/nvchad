@@ -1,24 +1,35 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
+-- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
-	theme = "catppuccin",
+    theme = "catppuccin",
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+    hl_override = {
+        TelescopeSelection = { bg = "#34343e", fg = "#ced4df", bold = true },
+    },
 }
 
 M.nvdash = { load_on_startup = true }
+
 M.ui = {
-      tabufline = {
+    tabufline = {
          lazyload = false
-     }
+    },
+    statusline = {
+        theme = "minimal", -- default/vscode/vscode_colored/minimal
+        -- round and block will work for minimal theme only
+        separator_style = "default",
+        order = { "mode", "file", "quarker", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+        modules = {
+            quarker = function()
+                return "%#Label#" .. require("quarker").statusline()
+            end,
+        },
+    },
 }
 
 return M
